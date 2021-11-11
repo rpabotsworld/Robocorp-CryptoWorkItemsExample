@@ -1,15 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-    <table width="100%" cellpadding="0" cellspacing="0" style="min-width:60%;" border="1">
-      <tr>
-        <th scope="col" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;line-height:30px"> Coin </th>
-        <th scope="col" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;line-height:30px"> Price in USD</th>
-      </tr>
-      {% for key, value in data.items() %}
-         <tr>
-              <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;"> {{ key }} </td>
-              <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;"> {{ value }} </td>
-         </tr>
-      {% endfor %}
-      </table>
+<p>Hi Team</p>
+<p>The CryptoWorkItems Example Bot has completed processing for listed coins from Coinmarketcap and Coingecko.</p>
+<h4>PRICE MOVEMENT FOR TRACKED COIN</h4>
+<hr />
+<table width="100%" cellpadding="0" cellspacing="0" style="min-width:60%;" border="1">
+  <tr>
+    <th scope="col"
+      style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;line-height:30px"> Coin </th>
+    <th scope="col"
+      style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;line-height:30px"> CoinGeko
+      Price($)</th>
+    <th scope="col"
+      style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;line-height:30px">
+      CoinMarketCap Price($) </th>
+    <th scope="col"
+      style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;line-height:30px"> Timestamp
+    </th>
+  </tr>
+  {% for row in data %}
+  <tr>
+    <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;"> {{ row[0]
+      }} </td>
+    <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;"> {{ row[1]
+      }} </td>
+    <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;"> {{ row[2]
+      }} </td>
+    <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;"> {{ row[3]
+      }} </td>
+  </tr>
+  {% endfor %}
+</table>
+<hr />
+<p>IMPORTANT DISCLAIMER: All content provided herein email is for demonstartion purpose and cant be used in production.
+  Make sure to follow Web Site Terms and Conditions before scraping data.</p>
+<p>Looking forward to more opportunities to be of service to you.</p>
+<p>Please add our e-mail ID - rpabotsworld@gmail.com to your address book by clicking here to ensure that our mails
+always reach your inbox.</p>
+
 {% endblock %}

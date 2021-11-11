@@ -55,16 +55,16 @@ def create_table():
     # Create table
     cur = con.cursor()
     cur.execute('''CREATE TABLE crypto
-                (coin text, price real)''')
+                (coin text, price text, marketprice text,updatedon timestamp)''')
     con.commit()
     con.close()
 
-def insert_table(coin,price):
+def insert_table(coin,price,marketprice,updatedon):
     con =  con = sqlite3.connect('example.db')
     # Create table
     cur = con.cursor()
-    sql = '''INSERT INTO crypto(coin, price) values(?, ?)'''
-    val = (coin,price)
+    sql = '''INSERT INTO crypto(coin, price, marketprice, updatedon ) values(?, ?, ?, ?)'''
+    val = (coin,price,marketprice,updatedon)
     cur.execute(sql,val)
     print(cur.rowcount, "details inserted")
     con.commit()
@@ -73,10 +73,17 @@ def insert_table(coin,price):
 def read_table():
     con =  con = sqlite3.connect('example.db')
     cur = con.cursor()
-    sql = "Select * from  crypto"
+    sql = "Select coin, price, marketprice, updatedon from  crypto"
     cur.execute(sql)
-    out=cur.fetchall()
-    variable = {key:val for key,val in out}
-    print(variable)
+    variable=cur.fetchall()
     con.close()
     return variable
+
+def clean_table():
+    con =  con = sqlite3.connect('example.db')
+    cur = con.cursor()
+    sql = "delete from  crypto"
+    cur.execute(sql)
+    con.commit()
+    cur.close()
+    con.close()
