@@ -1,0 +1,15 @@
+tasks:
+  Create Work Items:
+    shell: python -m robot --report NONE --outputdir output --logtitle "Task log" CreateWorkItems.robot
+  Process Work Items:
+    shell: python -m robot --report NONE --outputdir output --logtitle "Task log" ProcessWorkItems.robot
+  Report Work Items:
+    shell: python -m robot --report NONE --outputdir output --logtitle "Task log" StatusWorkItems.robot
+condaConfigFile: conda.yaml
+artifactsDir: output
+PATH:
+  - .
+PYTHONPATH:
+  - .
+ignoreFiles:
+  - .gitignore

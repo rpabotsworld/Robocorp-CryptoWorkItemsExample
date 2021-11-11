@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <table width="100%" cellpadding="0" cellspacing="0" style="min-width:60%;" border="1">
+      <tr>
+        <th scope="col" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;line-height:30px"> Coin </th>
+        <th scope="col" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;line-height:30px"> Price in USD</th>
+      </tr>
+      {% for key, value in data.items() %}
+         <tr>
+              <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;"> {{ key }} </td>
+              <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;"> {{ value }} </td>
+         </tr>
+      {% endfor %}
+      </table>
+{% endblock %}
